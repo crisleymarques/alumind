@@ -10,7 +10,7 @@
  <a href="#descricao">Descrição</a> •
  <a href="#tecnologias">Tecnologias</a> •
  <a href="#como-rodar">Como rodar</a> • 
- <a href="#autora">Autora</a>
+ <a href="#desenvolvido-por">Sobre</a>
 </p>
 
 ## Descrição 📋
@@ -35,21 +35,18 @@ git clone https://github.com/crisleymarques/alumind.git
 ### Adicionando a Key da Groq API ao seu ambiente
 1. Crie uma conta gratuita no [Groq](https://groq.com).
 2. Crie uma API Key e copie.
-3. Na pasta do projeto exporte uma variável de ambiente com a sua API Key:
+3. No arquivo `src/resources/application.properties`, procure a linha que declara a API Key do GROQ e insira a sua que foi gerada:
 ```bash
-export GROQ_API_KEY=<INSERT GROQ API KEY HERE>
+spring.ai.openai.api-key=your_api_key
 ```
 ### Executando
-1. 
-```bash
+1. Execute o projeto na IDE de sua preferência
 
-```
-
-Vai estar acessível em: http://localhost:8000.
+Acesse os endpoints no Swagger em: http://localhost:8080/swagger-ui/index.html
 
 Aproveite! 🎉
 
-## Autora 🧑‍💻
+## Desenvolvido por 🧑‍💻
 
-| [<img src="https://avatars.githubusercontent.com/u/44072771?s=400&u=b17d945fa43dec67a69d1cb11e2f23a7b2e0ad95&v=4" width="120px;"/><br /><sub><b>Crisley Marques</b></sub>](https://github.com/crisleymarques) <br/> | 
+| [<img src="https://avatars.githubusercontent.com/u/44072771?s=400&amp;u=b17d945fa43dec67a69d1cb11e2f23a7b2e0ad95&amp;v=4" width="120px;"/><br /><sub><b>Crisley Marques</b></sub>](https://github.com/crisleymarques) <br/> | 
 | :---: | 
