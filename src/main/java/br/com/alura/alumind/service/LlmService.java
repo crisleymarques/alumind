@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
  * @author Crisley Marques
  */
 @Service
-public class AIService {
-    OpenAiChatModel chatModel;
+public class LlmService {
+    private OpenAiChatModel chatModel;
 
-    public AIService(OpenAiChatModel chatModel) {
+    public LlmService(OpenAiChatModel chatModel) {
         this.chatModel = chatModel;
     }
 
