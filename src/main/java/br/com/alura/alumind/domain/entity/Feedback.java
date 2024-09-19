@@ -1,8 +1,8 @@
 package br.com.alura.alumind.domain.entity;
 
+import br.com.alura.alumind.enumeration.Sentiment;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,8 +35,10 @@ public class Feedback {
     )
     private List<RequestedFeatures> requestedFeatures = new ArrayList<>();
 
-    @NotBlank
-    @Size(min = 3, max = 20)
-    @Column(length = 20)
-    private String sentiment;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Sentiment sentiment;
+
+    @NotNull
+    private String description;
 }

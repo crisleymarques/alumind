@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jakarta.persistence.FetchType.LAZY;
 import static jakarta.persistence.GenerationType.IDENTITY;
 
 /**
@@ -28,8 +27,8 @@ public class RequestedFeatures {
     private Long id;
 
     @NotBlank
-    @Size(min = 3, max = 20)
-    @Column(length = 20)
+    @Size(min = 3, max = 45)
+    @Column(length = 45)
     private String code;
 
     @NotBlank
