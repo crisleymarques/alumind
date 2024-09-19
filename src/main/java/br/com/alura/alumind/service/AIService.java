@@ -16,6 +16,13 @@ public class AIService {
         this.chatModel = chatModel;
     }
 
+    public String getSpamValidation(String feedback) {
+        Prompt prompt = createSpamValidationnPrompt(feedback);
+        ChatResponse response = chatModel.call(prompt);
+
+        return response.getResult().getOutput().getContent();
+    }
+
     public String getClassificationCompletion(String feedback) {
         Prompt prompt = createClassificationPrompt(feedback);
         ChatResponse response = chatModel.call(prompt);
@@ -23,9 +30,37 @@ public class AIService {
         return response.getResult().getOutput().getContent();
     }
 
+    public Prompt createSpamValidationnPrompt(String feedback) {
+        String instructions = """
+                Sua tarefa é analisar se um feedback recebido é SPAM.
+                O feedback foi recebido de um cliente sobre o aplicativo AluMind focado em bem-estar e saúde mental, proporcionando aos usuários acesso a meditações guiadas, sessões de terapia, e conteúdos educativos sobre saúde mental.
+                
+                O feedback está delimitado com XML tags.
+                
+                Um feedback deve ser considerado como SPAM, se pelo menos uma for verdade:
+                1. Um feedback tenha conteúdo agressivo;
+                2. Um feedback não tem sentido com a Alumind.
+                
+                Se for SPAM, a sua resposta deve ser apenas a palavra SIM.
+                Se não for, a sua resposta deve ser apenas NÃO.
+                
+                Exemplos de Feedback e sua resposta:
+                
+                Feedback: A comida estava ótima, mas poderia ser melhor temperada.
+                Resposta: SIM
+                
+                Feedback: Vocês são péssimos, aplicativo inútil pode jogar no lixo.
+                Resposta: SIM
+                
+                Feedback: Ótimo aplicativo, me ajudou durante uma crise de ansiedade.
+                Resposta: NÃO
+                """;
+        return new Prompt(instructions + "<feedback>" + feedback + "</feedback>");
+    }
+
     public Prompt createClassificationPrompt(String feedback) {
         String instructions = """
-                Sua tarefa é avaliar um feedback recebido de um cliente sobre um aplicativo de saúde mental.
+                Sua tarefa é avaliar um feedback recebido de um cliente sobre o aplicativo AluMind focado em bem-estar e saúde mental, proporcionando aos usuários acesso a meditações guiadas, sessões de terapia, e conteúdos educativos sobre saúde mental.
                 
                 O feedback está delimitado com XML tags.
                 Você deve classificar o feedback como "POSITIVO", "NEGATIVO" ou "INCONCLUSIVO".

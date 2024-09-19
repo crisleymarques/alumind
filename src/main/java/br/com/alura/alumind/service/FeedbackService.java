@@ -16,10 +16,9 @@ public class FeedbackService {
     }
 
     public String classifyFeedback(FeedbackDTO feedbackDTO) {
+        String responseSPAM = aiService.getSpamValidation(feedbackDTO.descricao());
         String responseLLM = aiService.getClassificationCompletion(feedbackDTO.descricao());
 
         return responseLLM;
     }
-
-
 }
