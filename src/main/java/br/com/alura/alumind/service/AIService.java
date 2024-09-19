@@ -3,8 +3,6 @@ package br.com.alura.alumind.service;
 import org.springframework.ai.chat.model.ChatResponse;
 import org.springframework.ai.chat.prompt.Prompt;
 import org.springframework.ai.openai.OpenAiChatModel;
-import org.springframework.ai.openai.OpenAiChatOptions;
-import org.springframework.ai.openai.api.OpenAiApi;
 import org.springframework.stereotype.Service;
 
 /**
@@ -12,24 +10,17 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class AIService {
+    OpenAiChatModel chatModel;
 
-    OpenAiApi openAiApi;
-    OpenAiChatOptions openAiChatOptions;
-
-    public AIService() {
-        this.openAiApi = new OpenAiApi("https://api.groq.com/openai", System.getenv("GROQ_API_KEY"));
-        this.openAiChatOptions = OpenAiChatOptions.builder()
-                .withModel("llama3-70b-8192")
-                .withTemperature(0.4)
-                .withMaxTokens(200)
-                .build();
+    public AIService(OpenAiChatModel chatModel) {
+        this.chatModel = chatModel;
     }
 
     public String getClassificationCompletion(String feedback) {
-        OpenAiChatModel chatModel = new OpenAiChatModel(openAiApi, openAiChatOptions);
-        ChatResponse response = chatModel.call(createClassificationPrompt(feedback));
+        Prompt prompt = createClassificationPrompt(feedback);
+        ChatResponse response = chatModel.call(prompt);
 
-        return response.toString();
+        return response.getResult().getOutput().getContent();
     }
 
     public Prompt createClassificationPrompt(String feedback) {
