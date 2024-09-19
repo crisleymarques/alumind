@@ -25,7 +25,7 @@ public class FeedbackController {
     }
 
     @PostMapping(value = "/classification", produces = "application/json")
-    public ResponseEntity<String> createUser(@Valid @RequestBody FeedbackDTO feedbackDTO) {
+    public ResponseEntity<String> classifyFeedback(@Valid @RequestBody FeedbackDTO feedbackDTO) {
         String responseLLM = feedbackService.classifyFeedback(feedbackDTO);
         return ResponseEntity.status(OK).body(responseLLM);
     }
