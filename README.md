@@ -69,32 +69,34 @@ Aproveite! 🎉
 
 <img width="1111" alt="Modelagem do BD" src="https://github.com/user-attachments/assets/d4dc46bc-062d-4edf-af3a-79a072d20c77">
 
-#### Implementação
-- Foi utilizado o modelo para analisar o sentimento do feedback e estrturar a informação em formato JSON para ser posteriormente salva no banco.
-- Técnicas de **Engenharia de Prompt** foram aplicadas para conseguir o resultado esperado
-  - Uma das técnicas utilizadas foi o **Few-Shot Prompting**, que consiste em passar exemplos para o modelo no prompt para que ele consiga raciocinar com base neles e fazer analogias.
+#### Implementação 
+Foi utilizado o modelo para analisar o sentimento do feedback e estrturar a informação em formato JSON para ser posteriormente salva no banco.
+
+Técnicas de **Engenharia de Prompt** foram aplicadas para conseguir o resultado esperado.
+- Uma das técnicas utilizadas foi o **Few-Shot Prompting**, que consiste em passar exemplos para o modelo no prompt para que ele consiga raciocinar com base neles e fazer analogias.
 
 ### 2. Marcação de SPAM ❌
-A implementação foi análoga a de classificação dos feedbacks, mas foi feita em uma etapa anterior.
-- A classificação só executada quando o sistema identifica que o feedback não é SPAM.
-  - Note que os LLMs não são determinísticos, então é possível que hajam erros na identificação do SPAM.
+A implementação foi análoga a de classificação dos feedbacks.
+
+A análise de SPAM é feita antes da classificação de sentimentos.
+
+A classificação só é executada quando o sistema identifica que o feedback não é SPAM.
+- Note que os LLMs não são determinísticos, então é possível que haja erros na identificação do SPAM.
+
 
 ### 3. Nova Feature: Diário Emocional Inteligente 📝
-Minha sugestão de funcionalidade para a AluMind é a criação de um **Diário Emocional Inteligente** usando LLMs. 
-Esse diário teria como objetivo ajudar os usuários a monitorar seu bem-estar emocional ao longo do tempo, proporcionando uma plataforma para que eles possam registrar suas emoções, reflexões e experiências diárias.
+Minha sugestão de funcionalidade para a AluMind é a criação de um **Diário Emocional Inteligente** usando LLMs. Tem como objetivo ajudar os usuários a monitorar seu bem-estar emocional ao longo do tempo, proporcionando uma plataforma para que eles possam registrar suas emoções, reflexões e experiências diárias.
 
-A funcionalidade seria útil porque incentivaria os usuários a refletirem sobre suas emoções, promovendo o autoconhecimento e ajudando-os a compreender melhor seus sentimentos. 
-Com a identificação dos padrões de sentimentos e comportamentos, pode atuar como uma ferramenta preventiva ao sugerir ações quando detectar sinais de alerta. 
-Além disso, o sistema ofereceria recomendações personalizadas, como meditações ou conteúdos educativos, aumentando a relevância do aplicativo e proporcionando suporte emocional imediato.
+A funcionalidade seria útil porque incentiva os usuários a refletirem sobre suas emoções, promovendo o autoconhecimento e ajudando-os a compreender melhor seus sentimentos. Com a identificação dos padrões de sentimentos e comportamentos, pode atuar como uma ferramenta preventiva ao sugerir ações quando detectar sinais de alerta. Além disso, o sistema ofereceria recomendações personalizadas, como meditações ou conteúdos educativos, aumentando a relevância do aplicativo e proporcionando suporte emocional imediato.
 
-A implementação consistiria em uma interface em que os usuários podem registrar suas reflexões diárias, com o LLM processando esses textos em segundo plano. 
-O sistema usaria o modelo de análise de sentimentos para categorizar as emoções e fornecer respostas e recomendações personalizadas. 
-Além disso, seriam gerados relatórios de bem-estar com gráficos baseados nas emoções registradas, oferecendo uma visão geral do estado emocional ao longo do tempo.
+A implementação consistiria em uma interface em que os usuários podem registrar suas reflexões diárias, com o LLM processando esses textos em segundo plano. O sistema usaria o modelo de análise de sentimentos para categorizar as emoções e fornecer respostas e recomendações personalizadas. Além disso, seriam gerados relatórios de bem-estar com gráficos baseados nas emoções registradas, oferecendo uma visão geral do estado emocional ao longo do tempo.
 
 ### 4. Geração de respostas personalizadas (BÔNUS) 📨
-- Utilizei o mesmo endpoint para retornar as respostas personalizadas, pois acredito que faz sentido ter a resposta para o feedback inserido no mesmo lugar.
-Dado que todas as informações extraídas pela LLM já estão sendo salvas no BD e podem ser acessíveis por ele.
-- Para a implementação da funcionalidade utilizei uma abordagem similar as demais fazendo requisições ao modelo e usando técnicas de **Engenharia de Prompt**.
+Foi utilizado o mesmo endpoint para retornar as respostas personalizadas, pois acredito que faz sentido ter a resposta assim que o feedback é inserido e no mesmo lugar.
+
+Também foi levado em consideração que retornar as informações que foram extraídas no feedback não fosse interessante, dado que podem ser acessadas através do banco de dados.
+
+Para a implementação da funcionalidade foi feita uma abordagem similar às demais, fazendo requisições ao modelo e usando técnicas de  **Engenharia de Prompt**.
 
 
 
