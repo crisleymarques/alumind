@@ -39,20 +39,20 @@ public class FeedbackService {
         String responseSPAM = llmService.getSpamValidation(feedbackDTO.description());
         llmValidator.validateSpamResponse(responseSPAM);
 
-        String responseLLM = llmService.getClassificationCompletion(feedbackDTO.description());
-        llmValidator.validateJsonResponse(responseLLM);
+        String llmResponse = llmService.getClassificationCompletion(feedbackDTO.description());
+        llmValidator.validateJsonResponse(llmResponse);
 
         ObjectMapper objectMapper = new ObjectMapper();
         LlmResponseDTO llmResponseDTO;
         try {
-            llmResponseDTO = objectMapper.readValue(responseLLM, LlmResponseDTO.class);
+            llmResponseDTO = objectMapper.readValue(llmResponse, LlmResponseDTO.class);
         } catch (Exception e) {
             throw new AlumindException("Erro ao converter a resposta da LLM para DTO.", HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         saveResponseToDatabase(llmResponseDTO, feedbackDTO);
 
-        return responseLLM;
+        return llmService.getFeedbackResponse(llmResponseDTO);
     }
 
     @Transactional
