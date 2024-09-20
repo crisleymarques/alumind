@@ -87,7 +87,7 @@ A funcionalidade seria útil porque incentivaria os usuários a refletirem sobre
 Com a identificação dos padrões de sentimentos e comportamentos, pode atuar como uma ferramenta preventiva ao sugerir ações quando detectar sinais de alerta. 
 Além disso, o sistema ofereceria recomendações personalizadas, como meditações ou conteúdos educativos, aumentando a relevância do aplicativo e proporcionando suporte emocional imediato.
 
-A implementação do consistiria em uma interface em que os usuários podem registrar suas reflexões diárias, com o LLM processando esses textos em segundo plano. 
+A implementação consistiria em uma interface em que os usuários podem registrar suas reflexões diárias, com o LLM processando esses textos em segundo plano. 
 O sistema usaria o modelo de análise de sentimentos para categorizar as emoções e fornecer respostas e recomendações personalizadas. 
 Além disso, seriam gerados relatórios de bem-estar com gráficos baseados nas emoções registradas, oferecendo uma visão geral do estado emocional ao longo do tempo.
 
