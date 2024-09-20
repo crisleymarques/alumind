@@ -15,7 +15,7 @@ import static org.springframework.http.HttpStatus.OK;
  * @author Crisley Marques
  */
 @RestController
-@RequestMapping("/feedback")
+@RequestMapping("/feedbacks")
 public class FeedbackController {
 
     private final FeedbackService feedbackService;
@@ -24,7 +24,7 @@ public class FeedbackController {
         this.feedbackService = feedbackService;
     }
 
-    @PostMapping(value = "/classification")
+    @PostMapping()
     public ResponseEntity<String> classifyFeedback(@Valid @RequestBody FeedbackDTO feedbackDTO) {
         String responseLLM = feedbackService.classifyFeedback(feedbackDTO);
         return ResponseEntity.status(OK).body(responseLLM);
