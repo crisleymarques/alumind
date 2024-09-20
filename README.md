@@ -11,21 +11,21 @@
  <a href="#tecnologias">Tecnologias</a> •
  <a href="#como-rodar">Como rodar</a> • 
  <a href="#decisoes">Decisões Técnicas</a> • 
- <a href="#desenvolvido-por">Sobre</a>
+ <a href="#sobre">Sobre</a>
 </p>
 
-## Descrição 📋
+## <a id="descricao"></a>Descrição 📋
 A AluMind é uma startup que oferece um aplicativo focado em bem-estar e saúde mental, proporcionando aos usuários acesso a meditações guiadas, sessões de terapia, e conteúdos educativos sobre saúde mental. 
 Os Feedbacks vindo dos usuários em diferentes plataformas (canais de atendimento ao cliente; comunidades no Discord; redes sociais) são analisados, classificados por sentimentos e extraídas as possíveis melhorias contidas neles.
 
-## Tecnologias 🛠
+## <a id="tecnologias"></a>Tecnologias 🛠
 [![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/pt-BR/)
 [![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)](https://spring.io)
 [![Flyway](https://img.shields.io/badge/flyway-AC2020?style=for-the-badge&logo=flyway&logoColor=white)](https://www.red-gate.com/products/flyway/community/)
 [![Llama 3](https://img.shields.io/badge/Llama_3-%230467DF.svg?style=for-the-badge&logo=Meta&logoColor=white)](https://www.llama.com)
 [![Groq](https://img.shields.io/badge/groq_api-F54A2A?style=for-the-badge&logo=groq&logoColor=white)](https://groq.com)
 
-## Como rodar 💻
+## <a id="como-rodar"></a>Como rodar 💻
 ### Pré-requisitos
 Você precisa ter instalado na sua máquina [Git](https://git-scm.com), [Java 17](https://www.java.com/pt-BR/) e o [MySQL 8.1 ou mais recente](https://www.mysql.com).
 
@@ -56,7 +56,7 @@ Acesse os endpoints no Swagger: http://localhost:8080/swagger-ui/index.html
 
 Aproveite! 🎉
 
-## Decisões Técnicas 📑
+## <a id="decisoes"></a>Decisões Técnicas 📑
 
 ### 1. Classificação de Feedbacks 
 #### Modelagem do Banco de Dados 🎲
@@ -98,7 +98,7 @@ Dado que todas as informações extraídas pela LLM já estão sendo salvas no B
 
 
 
-## Desenvolvido por 🧑‍💻
+## <a id="sobre"></a>Sobre... 👩🏻‍💻
 
 <div align="center">
 
@@ -106,7 +106,10 @@ Dado que todas as informações extraídas pela LLM já estão sendo salvas no B
  <img style="border-radius: 50%" src="https://avatars.githubusercontent.com/u/44072771?v=4" width="100px;" alt="">
  <br>
  <sub><b>Crisley Marques ✨</b></sub></a> 
-
+ <br>
+ 
+ Desenvolvido por mim 👩🏻‍💻 Entre em contato!
+ 
 [![Linkedin Badge](https://img.shields.io/badge/-Crisley_Marques-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/crisley-marques/)](https://www.linkedin.com/in/crisley-marques/)
 [![Gmail Badge](https://img.shields.io/badge/-crisleyvmarques@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:crisleyvmarques@gmail.com)](mailto:crisleyvmarques@gmail.com)
 
